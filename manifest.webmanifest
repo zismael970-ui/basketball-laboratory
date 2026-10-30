@@ -1,0 +1,16 @@
+{
+  "name": "Basketball Laboratory by Ismael Zamora",
+  "short_name": "Basketball Lab",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090f15",
+  "theme_color": "#090f15",
+  "icons": [
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
