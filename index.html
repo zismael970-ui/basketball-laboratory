@@ -109,12 +109,31 @@ input,select,textarea{max-width:100%}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 <style>
-/* Subtle page transitions and iPhone-friendly navigation */
-@keyframes labPageEnter{from{opacity:.25;transform:translate3d(12px,0,0)}to{opacity:1;transform:translate3d(0,0,0)}}
-#content.lab-page-enter{animation:labPageEnter .28s cubic-bezier(.22,1,.36,1) both}
-#content button,.court-nav button,.modal{transition:transform .18s ease,background-color .18s ease,opacity .18s ease}
-#content button:active,.court-nav button:active{transform:scale(.98)}
-@media(prefers-reduced-motion:reduce){#content.lab-page-enter{animation:none}}
+/* Fluid, responsive motion: section changes, progressive reveal and tactile feedback */
+@keyframes labPageEnter{0%{opacity:0;transform:translate3d(0,24px,0) scale(.987);filter:blur(3px)}55%{opacity:.9;filter:blur(0)}100%{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+@keyframes labItemReveal{from{opacity:0;transform:translate3d(0,20px,0) scale(.985)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+@keyframes labModalIn{from{opacity:0;transform:translate3d(0,22px,0) scale(.965)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+@keyframes labBackdropIn{from{opacity:0}to{opacity:1}}
+@keyframes labAmbientBreathe{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.045)}}
+#content.lab-page-enter{animation:labPageEnter .62s cubic-bezier(.16,1,.3,1) both;will-change:opacity,transform}
+#content.lab-page-enter > *{animation:labItemReveal .58s cubic-bezier(.16,1,.3,1) both}
+#content.lab-page-enter > :nth-child(1){animation-delay:.07s}
+#content.lab-page-enter > :nth-child(2){animation-delay:.13s}
+#content.lab-page-enter > :nth-child(3){animation-delay:.19s}
+#content.lab-page-enter > :nth-child(4){animation-delay:.25s}
+#content.lab-page-enter > :nth-child(5){animation-delay:.30s}
+#content.lab-page-enter > :nth-child(n+6){animation-delay:.34s}
+#content .card,#content .record,#content .action-tile,#content .pulse-panel,#content .feedback-card{transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s ease,border-color .32s ease,background-color .32s ease}
+@media(hover:hover){#content .card:hover,#content .action-tile:hover,#content .pulse-panel:hover,#content .feedback-card:hover{transform:translate3d(0,-3px,0);box-shadow:0 16px 35px rgba(0,0,0,.19)}}
+#content button,.court-nav button,.masthead-controls button,.modal button{transition:transform .24s cubic-bezier(.2,.8,.2,1),background-color .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease,opacity .25s ease}
+#content button:active,.court-nav button:active,.masthead-controls button:active,.modal button:active{transform:scale(.955)}
+.court-nav button{position:relative}
+.court-nav button::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;border-radius:4px;background:var(--orange);transform:scaleX(0);transform-origin:center;opacity:0;transition:transform .36s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+.court-nav button.active::after{transform:scaleX(1);opacity:1}
+.modal-backdrop{animation:labBackdropIn .3s ease both}
+.modal-backdrop .modal{animation:labModalIn .46s cubic-bezier(.16,1,.3,1) both}
+.app-bg::before{animation:labCourtOrbit 38s ease-in-out infinite alternate,labAmbientBreathe 12s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){#content.lab-page-enter,#content.lab-page-enter > *,.modal-backdrop,.modal-backdrop .modal,.app-bg::before{animation:none!important}#content button,.court-nav button,.masthead-controls button,.modal button,#content .card,#content .record,#content .action-tile,#content .pulse-panel,#content .feedback-card{transition:none!important}}
 </style>
 </head>
 <body>
