@@ -217,7 +217,7 @@ input,select,textarea{max-width:100%}
 .feedback-heading p{display:block!important}
 @media(max-width:700px){#courtNav.court-nav{width:100%!important;padding:8px!important}#courtNav.court-nav button{min-width:92px!important;padding:11px 8px!important}#courtNav.court-nav .nav-num{display:none!important}}
 </style>
-</head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
 <body>
 <div class="app-bg"></div>
 <section id="welcome">
@@ -367,7 +367,7 @@ function upgradeExistingDemo(){let changed=false;for(const p of state.profiles){
 /* ===================== V2: COURTSIDE EXPERIENCE ===================== */
 function mountCourtNavigation(){
  const main=document.querySelector('.main');if(!main||document.getElementById('courtNav'))return;
- const mast=document.createElement('div');mast.className='court-masthead';mast.innerHTML=`<div class="court-brand"><div class="court-ball"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15"/><path d="M5 20h30M20 5v30M9 9c7 6 15 16 22 22M31 9C24 15 16 25 9 31"/></svg></div><div class="court-wordmark">Basketball Laboratory<small>By Ismael Zamora</small></div></div><span id="labBuildVersion" style="font-size:10px;opacity:.6">VERSIÓN 2026.10.30 · MENÚ V3</span><div class="court-meta">Andalucía · Season 2026/27<strong></strong></div><div class="masthead-controls"><button type="button" class="ghost-btn" id="labBackBtn" aria-label="Volver">‹ Volver</button><button type="button" class="ghost-btn" id="courtSettings">Datos</button></div>`;
+ const mast=document.createElement('div');mast.className='court-masthead';mast.innerHTML=`<div class="court-brand"><div class="court-ball"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15"/><path d="M5 20h30M20 5v30M9 9c7 6 15 16 22 22M31 9C24 15 16 25 9 31"/></svg></div><div class="court-wordmark">Basketball Laboratory<small>By Ismael Zamora</small></div></div><span id="labBuildVersion" style="font-size:10px;opacity:.6">VERSIÓN 2026.10.30 · MENÚ V4</span><div class="court-meta">Andalucía · Season 2026/27<strong></strong></div><div class="masthead-controls"><button type="button" class="ghost-btn" id="labBackBtn" aria-label="Volver">‹ Volver</button><button type="button" class="ghost-btn" id="courtSettings">Datos</button></div>`;
  const nav=document.createElement('nav');nav.className='court-nav';nav.id='courtNav';
  const items=[['home','01','Inicio'],['field','02','Rendimiento'],['mental','03','Mental'],['feedback','04','Feedback'],['profile','05','Mi ficha']];
  nav.innerHTML=items.map(([r,n,l])=>`<button type="button" data-route="${r}" class="${activeRoute===r?'active':''}"><span class="nav-num">${n} / BL</span><strong>${l}</strong></button>`).join('');
